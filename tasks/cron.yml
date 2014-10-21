@@ -1,0 +1,5 @@
+- name: "repeat temper"
+  cron: name="repeat temper"
+        minute="0,15,30,45"
+        job="sudo temper/temper | ./mqttcli pub -t "ledsun@github/temper" -r -s"
+        user="pi"

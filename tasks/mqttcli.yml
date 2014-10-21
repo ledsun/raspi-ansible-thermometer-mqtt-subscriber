@@ -1,0 +1,7 @@
+- name: download binary mqttcli
+  get_url: url=https://drone.io/github.com/shirou/mqttcli/files/artifacts/bin/linux_arm/mqttcli
+           dest=mqttcli
+
+- name: be mqttcli executable
+  file: path=mqttcli
+        mode=0755
