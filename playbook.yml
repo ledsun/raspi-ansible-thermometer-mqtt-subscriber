@@ -1,6 +1,7 @@
 ---
 - hosts: raspberry-pi
   tasks:
+    - include: tasks/apt.yml
     - include: tasks/temper.yml temper_dir=temper
     - include: tasks/mqttcli.yml
     - include: tasks/mqttclicfg.yml
