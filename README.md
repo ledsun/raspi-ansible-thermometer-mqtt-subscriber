@@ -12,11 +12,25 @@ git clone git@github.com:ledsun/raspi-ansible-thermometer.git
 ```
 
 ## Setup
-
-Create hosts file include the ip address of the RaspberryPi like below:
+### hosts
+Copy `hosts.example`
 ```
-[raspberry-pi]
-192.168.111.8
+cp hosts.example hosts
+```
+
+Edit the ip address of the RaspberryPi in the `hosts` file.
+
+### mqttcfg
+Copy `tasks/mqttclicfg.yml.example`
+```
+cp tasks/mqttclicfg.yml.example tasks/mqttclicfg.yml
+```
+
+Edit the account and the password for sango in the `tasks/mqttclicfg.yml` file.
+
+Encript `task/mqttcfg.yml` include secrets to connect MQTT broker with ansible-vault.
+```
+ansible-vault encrypt tasks/mqttclicfg.yml
 ```
 
 ## Executing
@@ -29,8 +43,6 @@ ansible-playbook -i hosts -u pi -k -c paramiko playbook.yml --ask-vault-pass
 
 Input SSH password and Vault password.
 
-The ansible-vault is used to encrypt secrets to connect MQTT broker.
-
 ## Assumptions
 
 * RaspberryPi Type B 512MB
@@ -38,10 +50,10 @@ The ansible-vault is used to encrypt secrets to connect MQTT broker.
 * USB thermometer-528018
 * MQTT as a Service sango (MQTT Broker)
 
-## Credits
+## Reference
 
-* [jschairb/raspi-ansible](https://github.com/jschairb/raspi-ansible/blob/master/README.md)
+* [jschairb/raspi-ansible](https://github.com/jschairb/raspi-ansible)
 
 ## License
 
-See [LICENSE](https://github.com/jschairb/raspi-ansible/blob/master/LICENSE).
+See [LICENSE](https://github.com/ledsun/raspi-ansible-thermometer-mqtt-subscriber/blob/master/LICENSE).

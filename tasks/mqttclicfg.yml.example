@@ -1,0 +1,4 @@
+- name: Transfer connection config for mqttcli
+  shell: 'echo ''{"host": "free.mqtt.shiguredo.jp", "port": "1883", "username": "your_account@github", "password": "YOUR_PASSWORD"}'' > .mqttcli.cfg'
+  args:
+    creates: .mqttcli.cfg
